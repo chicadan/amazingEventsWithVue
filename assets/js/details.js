@@ -1,17 +1,12 @@
 async function bringData() {
     try {
         const response = await fetch('https://mindhub-xj03.onrender.com/api/amazing')
-        console.log(response)
         const data = await response.json()
-        console.log(data.events)
         const events = data.events
-        console.log(events)
 
         const id = new URLSearchParams(location.search).get("id")
-        console.log(id)
         
         const eventid = events.find(element => element._id == id)
-        console.log(eventid)
         
         displayCardDetails(eventid, 'detailsGroup')
         

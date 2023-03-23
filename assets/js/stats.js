@@ -1,11 +1,8 @@
 async function bringData() {
   try {
     const response = await fetch('https://mindhub-xj03.onrender.com/api/amazing')
-    console.log(response)
     const data = await response.json()
-    console.log(data)
     const events = data.events
-    console.log(events)
 
     const table = document.getElementById("tableGroup1")
     addTablejs(events, table)
@@ -21,17 +18,13 @@ async function bringData() {
       let attendanceHigh = array.filter(event => event.assistance).reduce((event1, event2) => 
          (event1.assistance / event1.capacity) > (event2.assistance / event2.capacity)? event1 : event2
       )
-      //console.log(attendanceHigh)
 
       let attendanceLow = array.filter(event => event.assistance).reduce((event1, event2) => 
         (event1.assistance / event1.capacity) < (event2.assistance / event2.capacity)? event1: event2
       )
-      //console.log(attendanceLow)
 
       let capacityLarger = array.reduce((event1, event2) => (event1.capacity >= event2.capacity)?  event1 : event2
       )
-      //console.log(capacityLarger)
-
 
       let nuevotr = document.createElement('tr')
       nuevotr.innerHTML = `
@@ -52,16 +45,13 @@ async function bringData() {
     function attendancePer(array, categoriesName) {
 
       let byCategory = array.filter(event => event.category == categoriesName)
-      console.log(byCategory)
       let byEvents = byCategory.reduce((total, event) => event.assistance != undefined ? total += (event.assistance / event.capacity) * 100 : total += (event.estimate / event.capacity)*100, 0)
-      console.log(byEvents)
       return (byEvents / byCategory.length).toFixed(2)
     }
 
     function addTablejs23(array, container) {
 
       let categories = [... new Set(array.map(event => event.category))]
-      console.log(categories)
 
 
       let fragment = document.createDocumentFragment()

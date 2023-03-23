@@ -48,15 +48,14 @@
     </header>
     <div id="app">
         {{crossFilter}}
-        <main>
+    </main>
             <div class=" containerNav d-flex justify-content-between pe-4">
                 <div class="checkbox d-flex p-5" id="checkGroupUp">
-                    <template v-for="check of checkCategories">
+                    <template v-for = "check of checkCategories">
                         <div class="checkjs pe-3">
                             <div class="form-check pe-2">
                                 <label class="form-check-label">{{check}}</label>
-                                <input class="form-check-input" v-model="checkChecked" type="checkbox" :value="check"
-                                    name="cat">
+                                <input class="form-check-input" v-model="checkChecked" type="checkbox" :value="check" name="cat">
                             </div>
                         </div>
                     </template>
@@ -70,9 +69,8 @@
                 </div>
             </div>
 
-            <div class="groupCards d-flex flex-wrap p-4 gap-5 justify-content-center"
-                id="cardGroupUp">
-                <template v-if="finalFilter.length > 0" v-for="event of finalFilter">
+            <div v-if="finalFilter.length > 0" class="groupCards d-flex flex-wrap p-4 gap-5 justify-content-center" id="cardGroupUp">
+                <template  v-for="event of finalFilter">
                     <div class="cardjs" style="width: 20rem;">
                         <img :src="event.image" class="card-img-top p-2" :alt="event.name">
                         <div class="card-body">
@@ -87,7 +85,7 @@
                 </template>
             </div>
             <div v-else>
-                <div class="card" style="width:20rem">
+                <div>
                     <h5 class="card-text text-center p-3"> You must adjust the search to find the events</h5>
                 </div>
                 

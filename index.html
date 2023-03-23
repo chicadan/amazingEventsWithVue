@@ -74,8 +74,8 @@
                 </div>
             </div>
            
-            <div class="groupCards d-flex flex-wrap p-4 gap-5 justify-content-center" id="cardGroup">
-                <template v-if="finalFilter.length > 0" v-for="event of finalFilter">
+            <div v-if="finalFilter.length > 0" class="groupCards d-flex flex-wrap p-4 gap-5 justify-content-center" id="cardGroup">
+                <template  v-for="event of finalFilter">
                     <div class="cardjs" style="width: 20rem;">
                         <img :src="event.image" class="card-img-top p-2" :alt="event.name">
                         <div class="card-body">
@@ -89,9 +89,9 @@
                     </div>
                 </template>
             </div>
-          <!--  <div v-else class="card" style="width:20rem">
+           <div v-else>
                 <h5 class="card-text text-center p-3"> You must adjust the search to find the events</h5>
-            </div>-->
+            </div>
 
         </main>
     </div>
